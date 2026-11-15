@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>El Tiempo en Palosolo</title>
+  <meta name="theme-color" content="#0d254c">
+  
+  <!-- Configuración PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icono2.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="weather-card">
+   <!-- Barra superior -->
+    <header class="app-header">
+      <div class="header-title">
+        <img src="./icono1.png" alt="Icono" class="header-icon">
+        <h1>El Tiempo en Palosolo</h1>
+      </div>
+    </header>
+
+    <div id="statusMsg" class="status-msg"></div>
+
+    <!-- Clima Actual -->
+    <div class="hero-Banner">
+      <div class="current-weather">
+        <div class="weather-visual" id="mainIcon">⛅</div>
+        <div class="weather-info">
+          <div class="temp-main" id="currentTemp">--°C</div>
+          <div class="condition-text" id="currentDesc">Cargando...</div>
+          <div class="location-label">
+            <span>📍</span> <span id="locationName">Palosolo, Piñas, EC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Métricas -->
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <span class="metric-icon">💧</span>
+        <span class="metric-label">Humedad</span>
+        <span class="metric-value" id="humidityVal">--%</span>
+      </div>
+      <div class="metric-item border-sides">
+        <span class="metric-icon">💨</span>
+        <span class="metric-label">Viento</span>
+        <span class="metric-value" id="windVal">-- km/h</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-icon">🧭</span>
+        <span class="metric-label">Presión</span>
+        <span class="metric-value" id="pressureVal">-- hPa</span>
+      </div>
+    </div>
+
+<!-- Horarios del Sol -->
+    <div class="sun-times">
+      <div class="sun-item">
+        <span class="sun-icon">🌅</span>
+        <div class="sun-info">
+          <span class="sun-label">Amanecer</span>
+          <span class="sun-value" id="sunriseVal">--:--</span>
+        </div>
+      </div>
+      <div class="sun-item">
+        <span class="sun-icon">🌇</span>
+        <div class="sun-info">
+          <span class="sun-label">Atardecer</span>
+          <span class="sun-value" id="sunsetVal">--:--</span>
+        </div>
+      </div>
+    </div>
+
+<!-- Pronóstico por horas -->
+    <div class="hourly-container" id="hourlyGrid">
+      <!-- Se genera desde app.js -->
+    </div>
+
+    <!-- Pronóstico de 4 días -->
+    <div class="forecast-grid" id="forecastGrid">
+      <!-- Se genera desde app.js -->
+  </div>
+
+  <!-- Footer Blacio Center (AQUÍ ES SU LUGAR EXACTO) -->
+    <div class="app-footer">
+      <img src="./icono.png" alt="Blacio Center" class="footer-icon">
+      <span>By <strong>Blacio Center</strong></span>
+    </div>
+
+  </div>
+  <script src="./app.js"></script>
+</body>
+
+</html>

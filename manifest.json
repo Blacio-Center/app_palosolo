@@ -1,0 +1,19 @@
+{
+  "name": "El Tiempo en Palosolo",
+  "short_name": "PALOSOLO",
+  "description": "Pronóstico del tiempo en tiempo real para Palo Solo, Piñas y el mundo.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a1931",
+  "theme_color": "#0d254c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icono2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
