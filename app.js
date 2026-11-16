@@ -135,3 +135,23 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   });
 }
+
+// --- MÓDULO: NAVEGACIÓN POR PESTAÑAS ---
+function switchTab(tabName) {
+  // Ocultar todos los contenidos
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(content => content.classList.remove('active-tab'));
+  
+  // Quitar estilo activo de todos los botones
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  
+  // Activar el contenido y el botón seleccionado
+  document.getElementById('tab-' + tabName).classList.add('active-tab');
+  
+  // Buscar qué botón hizo clic y ponerlo activo
+  const clickedTab = Array.from(tabs).find(t => t.getAttribute('onclick').includes(tabName));
+  if(clickedTab) {
+    clickedTab.classList.add('active');
+  }
+}

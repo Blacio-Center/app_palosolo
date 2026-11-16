@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>El Tiempo en Palosolo</title>
+  <title>El Tiempo</title>
   <meta name="theme-color" content="#0d254c">
   
   <!-- Configuración PWA -->
@@ -16,85 +16,107 @@
 </head>
 <body>
   <div class="weather-card">
-   <!-- Barra superior -->
+    
+    <!-- Barra superior -->
     <header class="app-header">
       <div class="header-title">
         <img src="./icono1.png" alt="Icono" class="header-icon">
-        <h1>El Tiempo en Palosolo</h1>
+        <h1>PALOSOLO</h1>
       </div>
     </header>
 
-    <div id="statusMsg" class="status-msg"></div>
+    <!-- Navegación por pestañas -->
+    <nav class="app-nav">
+      <button class="nav-tab active" onclick="switchTab('clima')">Clima</button>
+      <button class="nav-tab" onclick="switchTab('calendario')">Eventos</button>
+    </nav>
 
-    <!-- Clima Actual -->
-    <div class="hero-Banner">
-      <div class="current-weather">
-        <div class="weather-visual" id="mainIcon">⛅</div>
-        <div class="weather-info">
-          <div class="temp-main" id="currentTemp">--°C</div>
-          <div class="condition-text" id="currentDesc">Cargando...</div>
-          <div class="location-label">
-            <span>📍</span> <span id="locationName">Palosolo, Piñas, EC</span>
+    <!-- CONTENEDOR 1: EL CLIMA -->
+    <div id="tab-clima" class="tab-content active-tab">
+      
+      <div id="statusMsg" class="status-msg"></div>
+
+      <!-- Clima Actual -->
+      <div class="hero-Banner">
+        <div class="current-weather">
+          <div class="weather-visual" id="mainIcon">⛅</div>
+          <div class="weather-info">
+            <div class="temp-main" id="currentTemp">--°C</div>
+            <div class="condition-text" id="currentDesc">Cargando...</div>
+            <div class="location-label">
+              <span>📍</span> <span id="locationName">Palosolo, Piñas, EC</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Métricas -->
-    <div class="metrics-grid">
-      <div class="metric-item">
-        <span class="metric-icon">💧</span>
-        <span class="metric-label">Humedad</span>
-        <span class="metric-value" id="humidityVal">--%</span>
-      </div>
-      <div class="metric-item border-sides">
-        <span class="metric-icon">💨</span>
-        <span class="metric-label">Viento</span>
-        <span class="metric-value" id="windVal">-- km/h</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-icon">🧭</span>
-        <span class="metric-label">Presión</span>
-        <span class="metric-value" id="pressureVal">-- hPa</span>
-      </div>
-    </div>
-
-<!-- Horarios del Sol -->
-    <div class="sun-times">
-      <div class="sun-item">
-        <span class="sun-icon">🌅</span>
-        <div class="sun-info">
-          <span class="sun-label">Amanecer</span>
-          <span class="sun-value" id="sunriseVal">--:--</span>
+      <!-- Métricas -->
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <span class="metric-icon">💧</span>
+          <span class="metric-label">Humedad</span>
+          <span class="metric-value" id="humidityVal">--%</span>
+        </div>
+        <div class="metric-item border-sides">
+          <span class="metric-icon">💨</span>
+          <span class="metric-label">Viento</span>
+          <span class="metric-value" id="windVal">-- km/h</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-icon">🧭</span>
+          <span class="metric-label">Presión</span>
+          <span class="metric-value" id="pressureVal">-- hPa</span>
         </div>
       </div>
-      <div class="sun-item">
-        <span class="sun-icon">🌇</span>
-        <div class="sun-info">
-          <span class="sun-label">Atardecer</span>
-          <span class="sun-value" id="sunsetVal">--:--</span>
+
+      <!-- Horarios del Sol -->
+      <div class="sun-times">
+        <div class="sun-item">
+          <span class="sun-icon">🌅</span>
+          <div class="sun-info">
+            <span class="sun-label">Amanecer</span>
+            <span class="sun-value" id="sunriseVal">--:--</span>
+          </div>
         </div>
+        <div class="sun-item">
+          <span class="sun-icon">🌇</span>
+          <div class="sun-info">
+            <span class="sun-label">Atardecer</span>
+            <span class="sun-value" id="sunsetVal">--:--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pronóstico por horas -->
+      <div class="hourly-container" id="hourlyGrid">
+        <!-- Se genera desde app.js -->
+      </div>
+
+      <!-- Pronóstico de 4 días -->
+      <div class="forecast-grid" id="forecastGrid">
+        <!-- Se genera desde app.js -->
+      </div>
+      
+    </div> <!-- ¡AQUÍ ESTÁ EL DIV QUE TE FALTABA! Fin del contenedor clima -->
+
+    <!-- CONTENEDOR 2: EL CALENDARIO GOOGLE -->
+    <div id="tab-calendario" class="tab-content">
+      <div class="calendar-wrapper">
+        <!-- Reemplaza este iframe de festivos por tu código de inserción de Google Calendar -->
+        <iframe src="https://calendar.google.com/calendar/embed?src=09ce09ef31d110df6ac780a9177f8b51b467c480b77e83f41f267d947be351d8%40group.calendar.google.com&ctz=America%2FGuayaquil" 
+                style="border: 0" width="100%" height="450" frameborder="0" scrolling="no">
+        </iframe>
       </div>
     </div>
 
-<!-- Pronóstico por horas -->
-    <div class="hourly-container" id="hourlyGrid">
-      <!-- Se genera desde app.js -->
-    </div>
-
-    <!-- Pronóstico de 4 días -->
-    <div class="forecast-grid" id="forecastGrid">
-      <!-- Se genera desde app.js -->
-  </div>
-
-  <!-- Footer Blacio Center (AQUÍ ES SU LUGAR EXACTO) -->
+    <!-- Footer Blacio Center -->
     <div class="app-footer">
       <img src="./icono.png" alt="Blacio Center" class="footer-icon">
       <span>By <strong>Blacio Center</strong></span>
     </div>
 
-  </div>
+  </div> <!-- Cierre de weather-card -->
+  
   <script src="./app.js"></script>
 </body>
-
 </html>
